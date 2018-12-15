@@ -19,6 +19,11 @@ public class APIKey {
 			return this;
 		}
 
+		@Secret
+		public String getAPIKey() {
+			return apiKey;
+		}
+
 		public APIKey build() throws NotBuildableException {
 			if (Objects.isNull(apiKey))
 				throw new NotBuildableException();
