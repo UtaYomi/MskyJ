@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.LinkedHashMap;
 import mskyj.util.annotation.Secret;
+import mskyj.util.json.JSONManager;
 
 public class Parameter {
 	private Map<String, String> parameter;
@@ -22,15 +23,7 @@ public class Parameter {
 		return parameter;
 	}
 
-	@Override
-	public String toString() {
-		if (parameter.isEmpty())
-			return "";
-
-		String text = "";
-		for (Entry<String, String> entry : parameter.entrySet())
-			text += "&" + entry.toString();
-
-		return text.substring(1);
+	public String generateJSONText() {
+		return JSONManager.encodeFromMap(parameter).toString();
 	}
 }
